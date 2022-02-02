@@ -1,0 +1,44 @@
+<form id="form_example">
+<!-- Groupe de champs  -->
+<fields>
+    <!-- Champ de type texte (fieldset et input)  -->
+    <field name="name" id="name" type="text">
+        <!--
+            Légende du fieldset.
+            "{{title}}" est la clé définie dans nos fichiers de langue (fr.json et en.js)
+            Résultat : https://i.imgur.com/uIS7Gvk.png
+        -->
+        <label>{{title}}</label>
+    </field>
+
+    <!--
+        Groupe d'input de type radio (type="choice")
+        Résultat : https://i.imgur.com/ZrjFMl7.png
+    -->
+    <field name="radioForm" id="radioForm" required="true" type="choice">
+        <label>{{chooseOne}}</label>
+        <!-- Champs de type radio -->
+        <option id="one">
+            <label>{{one}}</label>
+        </option>
+        <option id="two">
+            <label>{{two}}</label>
+        </option>
+    </field>
+
+</fields>
+
+<files>
+    <!-- Fichiers de langue (Ne pas retirer) -->
+    <file type="language" lang="fr" src="lang/fr.json"/>
+    <file type="language" lang="en" src="lang/en.json"/>
+</files>
+<!-- Voir fichier script.html -->
+<html>
+    <block lang="fr">
+        <body>
+            {{include(script.html)}}
+        </body>
+    </block>
+</html>
+</form>

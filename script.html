@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<body>
+
+<!--
+    Ici, nous pouvons ajouter des éléments "dynamiques" et stylisés au formulaire. Par exemple, un fetch sur une API pour faire apparaitre une image ou même faire de l'autocompletion instantanément.
+
+    Tips : Il est possible de créer un fichier PHP et de fetch sur celui-ci avec votre script JS.
+    Ce qui veut dire que vous pouvez créer des modules plus complexes avec une architecture plus avancée.
+
+    Tips2 : Vous pouvez utiliser Jquery (pas besoin d'importer la lib)
+-->
+
+<style>
+    #imgExample{
+        border: solid 5px red;
+        margin-left: 20px;
+    }
+</style>
+
+<script>
+    /* Voir resultat sur la configuration du module*/
+
+    console.log("Je suis dans l'espace de configuration/édition de mon module")
+
+    fetch("https://api.unsplash.com/search/photos?query=cutecat&per_page=1&client_id=gK52De2Tm_dL5o1IXKa9FROBAJ-LIYqR41xBdlg3X2k")
+        .then(response => response.json())
+        .then(data => {
+            let img = new Image()
+            img.src = data.results[0].urls.thumb
+            img.id = "imgExample"
+            // module-html est l'endroit dans lequel vous pouvez ajouter vos éléments comme ci-dessous
+            document.querySelector('#module-html').appendChild(img)
+        })
+
+</script>
+
+</body>
+</html>
